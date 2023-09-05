@@ -7,7 +7,7 @@ class Player:
         self.rank = rank
         self.points = points
         if not defense and ", " not in name:
-            name_list = name.split(" ")
+            name_list = name.split(" ", 1)
             name_list.reverse()
             self.name = ", ".join(name_list)
         else:
