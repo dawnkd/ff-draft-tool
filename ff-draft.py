@@ -6,7 +6,12 @@ class Player:
     def __init__(self, rank=None, points=None, name: str=None, team=None, bye=None, defense=False):
         self.rank = rank
         self.points = points
-        if not defense and ", " not in name:
+        if defense:
+            name_list = name.split(" ")
+            city_list = name_list[:-1]
+            city = " ".join(city_list)
+            self.name = ", ".join([name_list[-1], city])
+        elif ", " not in name:
             name_list = name.split(" ", 1)
             name_list.reverse()
             self.name = ", ".join(name_list)
